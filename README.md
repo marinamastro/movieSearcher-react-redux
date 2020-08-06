@@ -1,6 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Appp creada con hooks, redux y styled-components
+App creada con hooks, redux y styled-components
 
 ## Available Scripts
 
