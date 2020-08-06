@@ -6,17 +6,18 @@ import {Link} from "react-router-dom";
 
 const MainStyled = styled.main`
 margin-bottom:2rem;
+    div.main{
+        margin-top:0;
+        min-height:100vh;
+        background-image:url("http://www.hdfondos.eu/preview/get_photo/193246/2048/1152");
+    }
     img{
         position:relative;
         max-width:100%;         
     }
-    section.search{
-        position:absolute;
-        top:40%;
-        left:25%;
+    section.search{        
         background-color:rgba(255,255,255,0.5);
-        padding:5rem;
-        width:50%;
+        padding:5rem;       
         text-align:center;                
     }
     button{
@@ -36,6 +37,9 @@ margin-bottom:2rem;
             display:flex;
             flex-flow:row wrap;
             justify-content:center;
+            @media (max-width:560px){
+                flex-basis:80%;
+            }
             h3{
                 flex-basis:100%;
                 text-align:center
@@ -71,12 +75,13 @@ function Home (){
     }
   
     return (
-    <MainStyled>        
-        <img src="http://www.hdfondos.eu/preview/get_photo/193246/2048/1152"/>
-        <section className="search">
-            <input type="text" placeholder="search movie" onChange={handleChange}/>
-            <button onClick={handleClick}>Buscar</button>
-        </section>
+    <MainStyled>  
+        <div className="main">           
+            <section className="search">
+                <input type="text" placeholder="Movie name" onChange={handleChange}/>
+                <button onClick={handleClick}>Search</button>
+            </section>
+            </div>       
         <div>
             {listMovies.map(x=>{
                 return (
@@ -85,7 +90,7 @@ function Home (){
                         <h3><Link to={`movie/${x.imdbID}`}>{x.Title} </Link></h3>
                         <h4>{x.Year}</h4>
                         <button onClick={()=>addToFavorites(x)} disabled={moviesFavSearch(x) ? true : false}>
-                               {moviesFavSearch(x) ? "added" : "Add to favorites"} 
+                               {moviesFavSearch(x) ? "Added" : "Add to favorites"} 
                         </button>
                     </div>
                 )

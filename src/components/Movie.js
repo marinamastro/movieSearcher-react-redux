@@ -16,7 +16,7 @@ const MovieStyled = styled.section`
         padding:1rem;
         background-color:#f37121
     }
-    article{       
+    article{      
         flex-basis:60%;
         padding:1rem;
         background-color:#cedebd;
@@ -29,6 +29,18 @@ const MovieStyled = styled.section`
                 margin-left:1rem;
                 flex-basis:50%
             }
+            @media (max-width:560px){         
+            display: flex;
+            flex-flow:row wrap;
+            justify-content:center;
+            img{
+                flex-basis:100%
+            }
+            p{
+                flex-basis:100%
+            }
+
+        } 
     }
 `
 

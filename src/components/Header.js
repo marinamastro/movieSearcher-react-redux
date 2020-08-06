@@ -9,10 +9,11 @@ const HeaderStyled = styled.header`
     top:0;
     z-index:2;
     background-color:#0C151E;
-    display:flex;
+    display:flex;   
     align-items:center;
     flex-basis:100%;
     border-bottom:2px solid white;
+
     h1{
         flex-basis:50%;
         font-family: 'Red Rose', cursive;
@@ -25,6 +26,18 @@ const HeaderStyled = styled.header`
         justify-content:flex-end;
         margin-right:4rem
     }
+    @media (max-width:560px){
+        flex-flow:row wrap;
+        justify-content:center;
+        h1{
+            margin-left:0;           
+        }
+        nav{
+            justify-content:center;
+            flex-basis:100%;
+            margin-right:0
+        }
+    }
     a{
         margin-right:1rem;
         color:white;
@@ -34,6 +47,7 @@ const HeaderStyled = styled.header`
     a:hover{
         color:#f37121
     }
+
 `
 
 
