@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/movieSearcher-react-redux/static/css/main.21a5d953.chunk.css",
+    "main.js": "/movieSearcher-react-redux/static/js/main.0b5032b0.chunk.js",
+    "main.js.map": "/movieSearcher-react-redux/static/js/main.0b5032b0.chunk.js.map",
+    "runtime-main.js": "/movieSearcher-react-redux/static/js/runtime-main.4a1728e4.js",
+    "runtime-main.js.map": "/movieSearcher-react-redux/static/js/runtime-main.4a1728e4.js.map",
+    "static/js/2.e2d30230.chunk.js": "/movieSearcher-react-redux/static/js/2.e2d30230.chunk.js",
+    "static/js/2.e2d30230.chunk.js.map": "/movieSearcher-react-redux/static/js/2.e2d30230.chunk.js.map",
+    "index.html": "/movieSearcher-react-redux/index.html",
+    "precache-manifest.05908b5f338c03d695dffcf30af5c090.js": "/movieSearcher-react-redux/precache-manifest.05908b5f338c03d695dffcf30af5c090.js",
+    "service-worker.js": "/movieSearcher-react-redux/service-worker.js",
+    "static/css/main.21a5d953.chunk.css.map": "/movieSearcher-react-redux/static/css/main.21a5d953.chunk.css.map",
+    "static/js/2.e2d30230.chunk.js.LICENSE.txt": "/movieSearcher-react-redux/static/js/2.e2d30230.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4a1728e4.js",
+    "static/js/2.e2d30230.chunk.js",
+    "static/css/main.21a5d953.chunk.css",
+    "static/js/main.0b5032b0.chunk.js"
+  ]
+}
