@@ -2,6 +2,11 @@
 *{
   box-sizing: border-box;
 }
+button{
+  background-color: #f37121;
+  color:#0C151E;
+  border-color: #0C151E;
+}
 h4{
   margin-block-start: 0;
 }

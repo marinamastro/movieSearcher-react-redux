@@ -89,7 +89,9 @@ function Home (){
                         <img src={x.Poster}/>
                         <h3><Link to={`movie/${x.imdbID}`}>{x.Title} </Link></h3>
                         <h4>{x.Year}</h4>
-                        <button onClick={()=>addToFavorites(x)} disabled={moviesFavSearch(x) ? true : false}>
+                        <button onClick={()=>addToFavorites(x)}
+                         disabled={moviesFavSearch(x) ? true : false}
+                         style={moviesFavSearch(x) ? {"backgroundColor":"gray"} : {"backgroundColor":"#f37121"}}>
                                {moviesFavSearch(x) ? "Added" : "Add to favorites"} 
                         </button>
                     </div>
