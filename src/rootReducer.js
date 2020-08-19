@@ -33,7 +33,7 @@ function rootReducer (state=initialState,action) {
             return {
                 ...state,
                 movieDetail:{}
-            }
+            }     
     default: return state
     }
 
