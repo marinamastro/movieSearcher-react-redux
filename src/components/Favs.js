@@ -1,28 +1,9 @@
 import React from "react";
-import styled from "styled-components";
 import {useSelector,useDispatch} from "react-redux";
 import {removeFav} from "../actions";
-import {Link} from "react-router-dom"
+import {Link} from "react-router-dom";
+import FavsStyled from "./styled-components/FavsStyled";
 
-const FavsStyled = styled.section`
-display:flex;
-flex-flow:row wrap;
-justify-content:center;
-margin:5%;
-    div{
-        flex-basis:30%;
-        margin-bottom:2rem;
-        h3,h4{
-            text-align:center
-        }
-        button{
-            display:block;
-            margin:auto;
-            padding:1rem;
-        }
-    }
-
-`
 
 function Favs () {
     const favs = useSelector(state=>state.moviesFav);
@@ -38,9 +19,9 @@ function Favs () {
             <FavsStyled>
                 {favs.map(x=>{
                     return (                       
-                            <div key={x.imdbID+1}>                               
-                                <img src={x.Poster}/>
-                                <h3>  <Link to={`movie/${x.imdbID}`}>{x.Title} </Link></h3>
+                            <div key={x.id+1}>                               
+                                <img src={"http://image.tmdb.org/t/p/w500/"+x.poster_path}/>
+                                <h3>  <Link to={`movie/${x.id}`}>{x.title} </Link></h3>
                                 <h4>{x.Year}</h4>
                                 <button onClick={()=>handleClick(x)}>Remove from favorites</button>                               
                             </div>                      

@@ -10,7 +10,7 @@ function rootReducer (state=initialState,action) {
         case "GET_MOVIES":          
             return {
                 ...state,
-                moviesListSearch: action.payload.Search
+                moviesListSearch: action.payload.results
             }
         case "ADD_TO_FAVORITE":            
             return {
