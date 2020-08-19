@@ -1,8 +1,7 @@
-const API_KEY = process.env.REACT_APP_MOVIE_API_KEY;
 
 export function getMovies(titulo) {
     return function(dispatch) {
-      return fetch("https://api.themoviedb.org/3/search/movie?api_key="+API_KEY+"&query=" + titulo)
+      return fetch("https://api.themoviedb.org/3/search/movie?api_key=00a34788f5928d2f5dc907d4549dc1d3&query=" + titulo)
         .then(response => response.json())
         .then(json => {           
           dispatch({ type: "GET_MOVIES", payload: json });
@@ -23,7 +22,7 @@ export function getMovies(titulo) {
 }
 export function movieDetail(id) {
     return function(dispatch) {
-      return fetch("https://api.themoviedb.org/3/movie/"+id+"?api_key="+API_KEY)
+      return fetch("https://api.themoviedb.org/3/movie/"+id+"?api_key=00a34788f5928d2f5dc907d4549dc1d3")
         .then(response => response.json())
         .then(json => {       
           dispatch({ type: "MOVIE_DETAIL", payload: json });
