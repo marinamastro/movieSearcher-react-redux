@@ -1,4 +1,4 @@
-const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
+const API_KEY = process.env.REACT_APP_MOVIE_API_KEY;
 
 export function getMovies(titulo) {
     return function(dispatch) {
