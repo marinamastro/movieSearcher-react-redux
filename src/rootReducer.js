@@ -2,7 +2,8 @@
 const initialState = {
     moviesFav: [],
     moviesListSearch:[],
-    movieDetail:{}
+    movieDetail:{},
+    error:{}
 }
 
 function rootReducer (state=initialState,action) {
@@ -34,6 +35,16 @@ function rootReducer (state=initialState,action) {
                 ...state,
                 movieDetail:{}
             }     
+        case "SET_ERROR":         
+            return {
+                ...state,
+                error:action.payload
+            }
+        case "CLEAN_ERROR":
+            return {
+                ...state,
+                error:{}
+            }
     default: return state
     }
 

@@ -1,15 +1,17 @@
 import React,{useState,useEffect} from "react";
 import {useSelector,useDispatch} from "react-redux";
-import {getMovies,moviesFav} from "../actions";
+import {getMovies,moviesFav,setError,cleanError} from "../actions";
 import {Link} from "react-router-dom";
 import HomeStyled from "./styled-components/HomeStyled";
 import flecha from "../flecha-hacia-abajo.svg"
 
 function Home (){
-    const [title,setTitle] = useState("");
+    const [title,setTitle] = useState("");  
     const listMovies = useSelector(state=>state.moviesListSearch);   
     const favs = useSelector(state=>state.moviesFav);
+    const error = useSelector(state=>state.error.text);
     const dispatch = useDispatch(); 
+   
 
    function handleChange (event){
         setTitle(event.target.value)
@@ -17,10 +19,12 @@ function Home (){
 
     function handleClick(){
         if(!title){
-            alert("You have to enter a name")
-        }else{       
+            dispatch(setError({text:"You have to enter a name"}))
+        }     
+        else{    
+        dispatch(cleanError());   
         dispatch(getMovies(title));
-        setTitle("");       
+        setTitle("");         
         }
     }
 
@@ -31,23 +35,26 @@ function Home (){
     function moviesFavSearch (movie){        
         return favs.includes(movie)
     }
-  
-    function scrollDissappear(elementoAanimar){       
+ 
+    function scrollDissappear(elementoAanimar){          
         let posicionElemento=elementoAanimar&&elementoAanimar.getBoundingClientRect().top; 
         let pantalla=window.innerHeight/1.3;    
         if(posicionElemento<pantalla){
             elementoAanimar&&elementoAanimar.classList.add("hid")
         }   
     }
-
-    useEffect(()=>{
-         window.addEventListener("scroll",()=>{scrollDissappear(document.querySelector(".flecha"))}); 
+  
+    useEffect(()=>{       
+         window.addEventListener("scroll",()=>{scrollDissappear(document.querySelector(".flecha"))});       
          if(listMovies.length===0){
-         document.querySelector(".flecha").classList.add("hid");   
-        }else{
-            document.querySelector(".flecha").classList.remove("hid")
-        }                
+         document.querySelector(".flecha").classList.add("hid");                 
+        }       
+         else{
+            document.querySelector(".flecha").classList.remove("hid");                     
+        }                    
     },[listMovies])
+
+ 
 
     return (
     <HomeStyled>  
@@ -57,6 +64,7 @@ function Home (){
                     <input type="text" placeholder="Movie name" value={title} onChange={handleChange}/>
                     <button onClick={handleClick}>Search</button>
                 </form>
+               {error && <strong style={{color:"red"}}>{error}</strong>}
             </section>
             </div>       
         <div>

@@ -8,13 +8,13 @@ export function getMovies(titulo) {
         });
     };
   }
-  export function moviesFav (movie){
+export function moviesFav (movie){
       return {
           type: "ADD_TO_FAVORITE",
           payload:movie
       }
   }
-  export function removeFav (movie){
+export function removeFav (movie){
     return {
         type: "REMOVE_FAVORITE",
         payload:movie
@@ -30,8 +30,20 @@ export function movieDetail(id) {
     };
   }
 
-  export function cleanDetail (){
+export function cleanDetail (){
     return {
         type: "CLEAN_DETAIL"        
     }
+}
+
+export function setError (error){
+  return {
+      type: "SET_ERROR",
+      payload:error              
+  }
+}
+export function cleanError (){
+  return {
+      type: "CLEAN_ERROR"                
+  }
 }
