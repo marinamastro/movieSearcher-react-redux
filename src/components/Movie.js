@@ -19,8 +19,10 @@ function Movie (props) {
     return (
         <MovieStyled>
             <div>{movie.title}</div>
-            <article>
-                <img src={"http://image.tmdb.org/t/p/w500/"+movie.backdrop_path } />              
+            <article>               
+                { movie.backdrop_path? 
+                <img src={"http://image.tmdb.org/t/p/w500/"+movie.backdrop_path}/>:
+                <img src={"http://image.tmdb.org/t/p/w500/"+movie.poster_path}/>}                         
                 <p style={{textAlign:"left"}}>    
                     <strong>Plot: </strong>{movie.overview}.<br/>
                     <strong>Popularity: </strong>{movie.popularity}.<br/>
