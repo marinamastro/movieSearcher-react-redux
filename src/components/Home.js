@@ -1,20 +1,24 @@
 import React,{useState,useEffect} from "react";
 import {useSelector,useDispatch} from "react-redux";
-import {getMovies,moviesFav,setError,cleanError} from "../actions";
+import {getMovies,moviesFav,setError,cleanError,getMoviesAuto,cleanAuto} from "../actions";
 import {Link} from "react-router-dom";
 import HomeStyled from "./styled-components/HomeStyled";
-import flecha from "../flecha-hacia-abajo.svg"
+import flecha from "../flecha-hacia-abajo.svg";
+import AutoComplete from "./AutoComplete";
 
 function Home (){
     const [title,setTitle] = useState("");  
-    const listMovies = useSelector(state=>state.moviesListSearch);   
+    const listMovies = useSelector(state=>state.moviesListSearch); 
+    const moviesAutoComplete = useSelector(state=>state.moviesAutoComplete)  
     const favs = useSelector(state=>state.moviesFav);
     const error = useSelector(state=>state.error.text);
     const dispatch = useDispatch(); 
    
 
    function handleChange (event){
-        setTitle(event.target.value)
+        setTitle(event.target.value);
+        dispatch(cleanError());      
+       
     }
 
     function handleClick(){
@@ -36,11 +40,11 @@ function Home (){
         return favs.includes(movie)
     }
  
-    function scrollDissappear(elementoAanimar){          
-        let posicionElemento=elementoAanimar&&elementoAanimar.getBoundingClientRect().top; 
+    function scrollDissappear(elemento){          
+        let posicionElemento=elemento&&elemento.getBoundingClientRect().top; 
         let pantalla=window.innerHeight/1.3;    
         if(posicionElemento<pantalla){
-            elementoAanimar&&elementoAanimar.classList.add("hid")
+            elemento&&elemento.classList.add("hid")
         }   
     }
   
@@ -51,21 +55,30 @@ function Home (){
         }       
          else{
             document.querySelector(".flecha").classList.remove("hid");                     
-        }                    
+        }    
+        return ()=>{
+            window.removeEventListener("scroll",scrollDissappear)
+        }                
     },[listMovies])
 
- 
+   useEffect(()=>{
+        dispatch(getMoviesAuto(title))
+        if(title.length===0){
+            dispatch(cleanAuto())
+        }
+    },[title])
 
     return (
     <HomeStyled>  
         <div className="main">           
             <section className="search">
                 <form onSubmit={(e)=>e.preventDefault()}>
-                    <input type="text" placeholder="Movie name" value={title} onChange={handleChange}/>
-                    <button onClick={handleClick}>Search</button>
-                </form>
-               {error && <strong style={{color:"red"}}>{error}</strong>}
-            </section>
+                    <input type="text" placeholder="Movie name" value={title} onChange={handleChange}/>                   
+                    <button onClick={handleClick}>Search</button>                   
+                </form>               
+               {error && <strong style={{color:"red"}}>{error}</strong>}      
+               {moviesAutoComplete&&<AutoComplete   listMovies = {moviesAutoComplete}/>}       
+            </section>          
             </div>       
         <div>
             {listMovies.map(x=>{

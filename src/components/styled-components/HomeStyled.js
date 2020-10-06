@@ -34,7 +34,17 @@ margin-bottom:2rem;
     section.search{        
         background-color:rgba(255,255,255,0.5);
         padding:5rem;       
-        text-align:center;                
+        text-align:center;   
+        position: relative;
+        form {
+            display:flex;          
+        }             
+        .auto{
+            margin:0
+        }
+        .hiden{
+        display: none;
+        }
     }
     button{
         max-height:50px;

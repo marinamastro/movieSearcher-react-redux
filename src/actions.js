@@ -4,7 +4,16 @@ export function getMovies(titulo) {
       return fetch("https://api.themoviedb.org/3/search/movie?api_key=00a34788f5928d2f5dc907d4549dc1d3&query=" + titulo)
         .then(response => response.json())
         .then(json => {           
-          dispatch({ type: "GET_MOVIES", payload: json });
+          dispatch({ type: "GET_MOVIES", payload: json })     
+        });
+    };
+  }
+  export function getMoviesAuto(titulo) {
+    return function(dispatch) {
+      return fetch("https://api.themoviedb.org/3/search/movie?api_key=00a34788f5928d2f5dc907d4549dc1d3&query=" + titulo)
+        .then(response => response.json())
+        .then(json => {          
+          dispatch({ type: "GET_MOVIES_AUTOCOMPLETE", payload: json });
         });
     };
   }
@@ -35,7 +44,11 @@ export function cleanDetail (){
         type: "CLEAN_DETAIL"        
     }
 }
-
+export function cleanAuto (){
+  return {
+      type: "CLEAN_AUTO_COMPLETE"        
+  }
+}
 export function setError (error){
   return {
       type: "SET_ERROR",

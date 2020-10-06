@@ -2,6 +2,7 @@
 const initialState = {
     moviesFav: [],
     moviesListSearch:[],
+    moviesAutoComplete:[],
     movieDetail:{},
     error:{}
 }
@@ -12,6 +13,16 @@ function rootReducer (state=initialState,action) {
             return {
                 ...state,
                 moviesListSearch: action.payload.results
+            }
+        case "GET_MOVIES_AUTOCOMPLETE":
+            return {
+                ...state,
+                moviesAutoComplete:action.payload.results
+            }
+        case "CLEAN_AUTO_COMPLETE":
+            return {
+                ...state,
+                moviesAutoComplete:[]
             }
         case "ADD_TO_FAVORITE":            
             return {
