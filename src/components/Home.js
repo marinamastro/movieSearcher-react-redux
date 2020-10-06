@@ -83,8 +83,9 @@ function Home (){
         <div>
             {listMovies.map(x=>{
                 return (
-                    <div key={x.id}>
-                        <img src={"http://image.tmdb.org/t/p/w500/"+x.poster_path} />
+                    x.poster_path&&
+                    <div key={x.id}>                        
+                        <img src={"http://image.tmdb.org/t/p/w500/"+x.poster_path} height="400px" />
                         <h3><Link to={`movie/${x.id}`}>{x.title} </Link></h3>
                         <h4>{x.release_date}</h4>
                         <button onClick={()=>addToFavorites(x)}

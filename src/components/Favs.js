@@ -20,7 +20,7 @@ function Favs () {
                 {favs.map(x=>{
                     return (                       
                             <div key={x.id+1}>                               
-                                <img src={"http://image.tmdb.org/t/p/w500/"+x.poster_path}/>
+                                <img src={"http://image.tmdb.org/t/p/w500/"+x.poster_path} height="500px"/>
                                 <h3>  <Link to={`movie/${x.id}`}>{x.title} </Link></h3>
                                 <h4>{x.Year}</h4>
                                 <button onClick={()=>handleClick(x)}>Remove from favorites</button>                               

@@ -4,6 +4,7 @@ const HeaderStyled = styled.header`
 @import url('https://fonts.googleapis.com/css2?family=Red+Rose:wght@700&display=swap');
     position:sticky;
     top:0;
+    height:60px;
     z-index:2;
     background-color:#0C151E;
     display:flex;   
