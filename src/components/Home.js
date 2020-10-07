@@ -72,20 +72,19 @@ function Home (){
     <HomeStyled>  
         <div className="main">           
             <section className="search">
-                <form onSubmit={(e)=>e.preventDefault()}>
+                <form onSubmit={(e)=>{e.preventDefault();setTitle("")}}>
                     <input type="text" placeholder="Movie name" value={title} onChange={handleChange}/>                   
                     <button onClick={handleClick}>Search</button>                   
                 </form>               
                {error && <strong style={{color:"red"}}>{error}</strong>}      
-               {moviesAutoComplete&&<AutoComplete   listMovies = {moviesAutoComplete}/>}       
+               {moviesAutoComplete&&<AutoComplete setTitle={setTitle}  listMovies = {moviesAutoComplete}/>}       
             </section>          
             </div>       
         <div>
             {listMovies.map(x=>{
-                return (
-                    x.poster_path&&
+                return (                   
                     <div key={x.id}>                        
-                        <img src={"http://image.tmdb.org/t/p/w500/"+x.poster_path} height="400px" />
+                        {x.poster_path?<img src={"http://image.tmdb.org/t/p/w500/"+x.poster_path} height="400px" />:<h5>Poster no disponible</h5>}
                         <h3><Link to={`movie/${x.id}`}>{x.title} </Link></h3>
                         <h4>{x.release_date}</h4>
                         <button onClick={()=>addToFavorites(x)}
