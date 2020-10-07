@@ -16,7 +16,10 @@ margin-bottom:2rem;
         margin-top:0;
         min-height:100vh;
         background-image:url("http://www.hdfondos.eu/preview/get_photo/193246/2048/1152");
-        position:relative;       
+        position:relative;  
+        @media (max-width:560px){
+                width:100%;
+            }     
     }
     img{
         position:relative;
@@ -36,8 +39,15 @@ margin-bottom:2rem;
         padding:5rem;       
         text-align:center;   
         position: relative;
+        @media (max-width:560px){
+                width:100%;
+            }   
         form {
-            display:flex;          
+            display:flex;  
+            @media (max-width:560px){
+                justify-content:center;
+                width:100%;
+            }          
         }             
         .auto{
             margin:0
