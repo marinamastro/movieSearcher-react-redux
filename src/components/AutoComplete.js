@@ -11,6 +11,7 @@ function AutoComplete(props){
         <AutoCompleteStyled className="auto" ref={autoc}>
            {props.listMovies&&props.listMovies.map(x=>{
            return <p onClick={()=>{
+            props.setTitle("")
            autoc.current.classList.add("hiden")
            dispatch(getMovies(x.title))}}>{x.title}</p>})}
             </AutoCompleteStyled>
