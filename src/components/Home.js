@@ -1,10 +1,10 @@
 import React,{useState,useEffect} from "react";
 import {useSelector,useDispatch} from "react-redux";
 import {getMovies,moviesFav,setError,cleanError,getMoviesAuto,cleanAuto} from "../redux/actions";
-import {Link} from "react-router-dom";
 import HomeStyled from "./styled-components/HomeStyled";
 import flecha from "../flecha-hacia-abajo.svg";
 import AutoComplete from "./AutoComplete";
+import Movie from "./Movie"
 
 function Home (){
     const [title,setTitle] = useState("");  
@@ -83,16 +83,7 @@ function Home (){
         <div>
             {listMovies.map(x=>{
                 return (                   
-                    <div key={x.id}>                        
-                        {x.poster_path?<img src={"http://image.tmdb.org/t/p/w500/"+x.poster_path} height="400px" />:<h5>Poster no disponible</h5>}
-                        <h3><Link to={`movie/${x.id}`}>{x.title} </Link></h3>
-                        <h4>{x.release_date}</h4>
-                        <button onClick={()=>addToFavorites(x)}
-                         disabled={moviesFavSearch(x) ? true : false}
-                         style={moviesFavSearch(x) ? {"backgroundColor":"gray"} : {"backgroundColor":"#f37121"}}>
-                               {moviesFavSearch(x) ? "Added" : "Add to favorites"} 
-                        </button>
-                    </div>
+                    <Movie x={x} addToFavorites={addToFavorites} moviesFavSearch={moviesFavSearch}/>
                 )
             })}
         </div>

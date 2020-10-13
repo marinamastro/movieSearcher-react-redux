@@ -4,7 +4,7 @@ import Header from "./components/Header";
 import {Route} from "react-router-dom";
 import Home from "./components/Home";
 import Favs from "./components/Favs";
-import Movie from "./components/Movie";
+import MovieDetail from "./components/MovieDetail";
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
       <Header/>
       <Route path="/" exact component={Home} />
       <Route path="/favs"  component={Favs} />
-      <Route path="/movie/:id"  render={(match)=><Movie match={match}/>} />
+      <Route path="/movie/:id"  render={(match)=><MovieDetail match={match}/>} />
     </div>
   );
 }
