@@ -1,6 +1,6 @@
 import React from "react";
 import {useSelector,useDispatch} from "react-redux";
-import {removeFav} from "../actions";
+import {removeFav} from "../redux/actions";
 import {Link} from "react-router-dom";
 import FavsStyled from "./styled-components/FavsStyled";
 

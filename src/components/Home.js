@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from "react";
 import {useSelector,useDispatch} from "react-redux";
-import {getMovies,moviesFav,setError,cleanError,getMoviesAuto,cleanAuto} from "../actions";
+import {getMovies,moviesFav,setError,cleanError,getMoviesAuto,cleanAuto} from "../redux/actions";
 import {Link} from "react-router-dom";
 import HomeStyled from "./styled-components/HomeStyled";
 import flecha from "../flecha-hacia-abajo.svg";

@@ -1,5 +1,5 @@
 import React,{useEffect} from "react";
-import {movieDetail,cleanDetail} from "../actions";
+import {movieDetail,cleanDetail} from "../redux/actions";
 import {useSelector,useDispatch} from "react-redux";
 import MovieStyled from "./styled-components/MovieStyled"
 

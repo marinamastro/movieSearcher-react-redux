@@ -1,7 +1,7 @@
 import React,{useRef} from "react";
 import {useDispatch} from "react-redux";
 import AutoCompleteStyled from "./styled-components/AutoCompleteStyled";
-import {getMovies} from "../actions";
+import {getMovies} from "../redux/actions";
 
 
 function AutoComplete(props){
