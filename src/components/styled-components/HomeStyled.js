@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import fondo from "../../fondo.jpg"
+
 const HomeStyled = styled.main`
 .hid{
     display:none
@@ -15,7 +17,7 @@ margin-bottom:2rem;
     div.main{
         margin-top:0;
         min-height:100vh;
-        background-image:url("http://www.hdfondos.eu/preview/get_photo/193246/2048/1152");
+        background-image:url(${fondo});
         position:relative;  
         @media (max-width:560px){
                 width:100%;
